@@ -33,14 +33,21 @@ h1 {
 
 .time-container {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
     margin: 20px;
     gap: 10px;
 }
 
 .time {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-weight: bold;
     font-size: 3rem;
     color: #333;
+    min-width: 90px;
 }
 
 .separator {
@@ -88,5 +95,5 @@ h1 {
 }
 
 .hide {
-    display: none;
+    display: none!important;
 }
