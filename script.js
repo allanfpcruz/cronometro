@@ -18,6 +18,10 @@ startBtn.addEventListener('click', startTimer)
 
 pauseBtn.addEventListener('click', pauseTimer)
 
+continueBtn.addEventListener('click', continueTimer)
+
+restartBtn.addEventListener('click', restartTimer)
+
 
 //funções
 function startTimer() {
@@ -43,8 +47,8 @@ function startTimer() {
         secondEl.innerHTML = formatTime(seconds)
         minuteEL.innerHTML = formatTime(minutes)
 
-        startBtn.classList.add('hide')
-        pauseBtn.classList.remove('hide')
+        startBtn.style.display = 'none'
+        pauseBtn.style.display = 'block'
     }, 10)
 
 }
@@ -59,6 +63,28 @@ function formatMiliseconds(time) {
 
 function pauseTimer() {
     isPaused = true
-    pauseBtn.classList.add('hide')
-    continueBtn.classList.remove('hide')
+    pauseBtn.style.display = 'none'
+    continueBtn.style.display = 'block'
+}
+
+function continueTimer() {
+    isPaused = false
+    continueBtn.style.display = 'none'
+    pauseBtn.style.display = 'block'
+}
+
+function restartTimer() {
+    clearInterval(interval)
+
+    minutes = 0
+    seconds = 0
+    miliseconds = 0
+
+    minuteEL.innerHTML = '00'
+    secondEl.innerHTML = '00'
+    milisecondEl.innerHTML = '000'
+
+    startBtn.style.display = 'block'
+    pauseBtn.style.display = 'none'
+    continueBtn.style.display = 'none'
 }
