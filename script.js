@@ -8,6 +8,7 @@ const continueBtn = document.querySelector('#continuebtn')
 const restartBtn = document.querySelector('#restartbtn')
 
 let interval 
+let listTime = []
 let minutes = 0
 let seconds = 0
 let miliseconds = 0
@@ -22,9 +23,19 @@ continueBtn.addEventListener('click', continueTimer)
 
 restartBtn.addEventListener('click', restartTimer)
 
+//classe
+class Time {
+    constructor(min, sec, milisec) {
+    this.min = min
+    this.sec = sec
+    this.milisec = milisec
+    }
+}
+
 
 //funções
 function startTimer() {
+    isPaused = false
     interval = setInterval(() => {
 
         if(!isPaused) {
@@ -41,14 +52,14 @@ function startTimer() {
                 seconds = 0
             }
 
+            startBtn.style.display = 'none'
+            pauseBtn.style.display = 'block'
         }
 
         milisecondEl.innerHTML = formatMiliseconds(miliseconds)
         secondEl.innerHTML = formatTime(seconds)
         minuteEL.innerHTML = formatTime(minutes)
 
-        startBtn.style.display = 'none'
-        pauseBtn.style.display = 'block'
     }, 10)
 
 }
@@ -75,6 +86,10 @@ function continueTimer() {
 
 function restartTimer() {
     clearInterval(interval)
+
+    let time = new Time(minutes, seconds, miliseconds)
+    listTime.push(time)
+    console.log(listTime)
 
     minutes = 0
     seconds = 0
