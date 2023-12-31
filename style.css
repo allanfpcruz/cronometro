@@ -94,15 +94,6 @@ h1 {
     color: rgb(15, 15, 206);
 }
 
-#show-historic {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.75rem;
-    text-decoration: underline;
-    margin-top: 10px;
-    color: #4225ad;
-
-}
-
-#pausebtn, #continuebtn, #show-historic {
+#pausebtn, #continuebtn {
     display: none;
 }
